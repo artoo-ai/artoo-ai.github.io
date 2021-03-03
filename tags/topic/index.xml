@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Topic on Rico.ai</title>
+    <link>http://www.rico.ai/tags/topic/</link>
+    <description>Recent content in Topic on Rico.ai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Jan 2019 12:29:40 +0600</lastBuildDate>
+    
+	<atom:link href="http://www.rico.ai/tags/topic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ROS Topic</title>
+      <link>http://www.rico.ai/blog/ros-topic/</link>
+      <pubDate>Tue, 01 Jan 2019 12:29:40 +0600</pubDate>
+      
+      <guid>http://www.rico.ai/blog/ros-topic/</guid>
+      <description>rostopic list rosmsg list  Publisher Publish messages into a topic
+import rospy from geometry_msgs.msg import Twist rospy.init_node(&#39;robot_mover&#39;) pub = rospy.Publisher(&#39;/cmd_move&#39;, Twist, queue_size=1) # 2 Hz rate = rospy.Rate(2) move = Twist() move.linear.x = 0.5 # Move forward on x 0.5 move.angular.z = 0.5 # Move at an anglular rate of 0.5 while not rospy.is_shutdown(): pub.publish(move) # Publish the move rate.sleep() # Maintain the refresh rate  Subscriber Read messages from a topic</description>
+    </item>
+    
+  </channel>
+</rss>
