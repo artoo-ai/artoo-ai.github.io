@@ -1,76 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Rico.ai</title>
+    <title>Tags on Artoo.ai</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Rico.ai</description>
+    <description>Recent content in Tags on Artoo.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 12:29:40 +0600</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Donkey</title>
-      <link>/tags/donkey/</link>
-      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Wed, 18 Dec 2019 12:29:40 +0600</pubDate>
       
-      <guid>/tags/donkey/</guid>
+      <guid>/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Donkeycar</title>
-      <link>/tags/donkeycar/</link>
-      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      <title>ros</title>
+      <link>/tags/ros/</link>
+      <pubDate>Wed, 18 Dec 2019 12:29:40 +0600</pubDate>
       
-      <guid>/tags/donkeycar/</guid>
+      <guid>/tags/ros/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Euclid</title>
-      <link>/tags/euclid/</link>
-      <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
+      <title>ros2</title>
+      <link>/tags/ros2/</link>
+      <pubDate>Wed, 18 Dec 2019 12:29:40 +0600</pubDate>
       
-      <guid>/tags/euclid/</guid>
+      <guid>/tags/ros2/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Flask</title>
-      <link>/tags/flask/</link>
-      <pubDate>Thu, 13 Jun 2019 12:29:40 +0600</pubDate>
+      <title>ros topic</title>
+      <link>/tags/ros-topic/</link>
+      <pubDate>Thu, 22 Aug 2019 12:29:40 +0600</pubDate>
       
-      <guid>/tags/flask/</guid>
+      <guid>/tags/ros-topic/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Gui</title>
-      <link>/tags/gui/</link>
-      <pubDate>Thu, 13 Jun 2019 12:29:40 +0600</pubDate>
+      <title>RPI3</title>
+      <link>/tags/rpi3/</link>
+      <pubDate>Thu, 22 Aug 2019 12:29:40 +0600</pubDate>
       
-      <guid>/tags/gui/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Intel</title>
-      <link>/tags/intel/</link>
-      <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/intel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jestson</title>
-      <link>/tags/jestson/</link>
-      <pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/jestson/</guid>
+      <guid>/tags/rpi3/</guid>
       <description></description>
     </item>
     
@@ -84,25 +66,7 @@
     </item>
     
     <item>
-      <title>Nerual Network</title>
-      <link>/tags/nerual-network/</link>
-      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/nerual-network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nvidia</title>
-      <link>/tags/nvidia/</link>
-      <pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/nvidia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pca9685</title>
+      <title>PCA9685</title>
       <link>/tags/pca9685/</link>
       <pubDate>Sat, 15 Jun 2019 12:29:40 +0600</pubDate>
       
@@ -111,65 +75,11 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R2d2</title>
+      <title>R2D2</title>
       <link>/tags/r2d2/</link>
       <pubDate>Sat, 15 Jun 2019 12:29:40 +0600</pubDate>
       
       <guid>/tags/r2d2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ros</title>
-      <link>/tags/ros/</link>
-      <pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/ros/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ros Action</title>
-      <link>/tags/ros-action/</link>
-      <pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/ros-action/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ros Service</title>
-      <link>/tags/ros-service/</link>
-      <pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/ros-service/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ros Topic</title>
-      <link>/tags/ros-topic/</link>
-      <pubDate>Tue, 01 Jan 2019 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/ros-topic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rpi3</title>
-      <link>/tags/rpi3/</link>
-      <pubDate>Sat, 15 Jun 2019 12:29:40 +0600</pubDate>
-      
-      <guid>/tags/rpi3/</guid>
       <description></description>
     </item>
     
@@ -183,20 +93,119 @@
     </item>
     
     <item>
-      <title>Tensorflow</title>
-      <link>/tags/tensorflow/</link>
-      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      <title>Flask</title>
+      <link>/tags/flask/</link>
+      <pubDate>Thu, 13 Jun 2019 12:29:40 +0600</pubDate>
       
-      <guid>/tags/tensorflow/</guid>
+      <guid>/tags/flask/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tx1</title>
+      <title>GUI</title>
+      <link>/tags/gui/</link>
+      <pubDate>Thu, 13 Jun 2019 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ros action</title>
+      <link>/tags/ros-action/</link>
+      <pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/ros-action/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ros service</title>
+      <link>/tags/ros-service/</link>
+      <pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/ros-service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>euclid</title>
+      <link>/tags/euclid/</link>
+      <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/euclid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>intel</title>
+      <link>/tags/intel/</link>
+      <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/intel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jestson</title>
+      <link>/tags/jestson/</link>
+      <pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/jestson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvidia</title>
+      <link>/tags/nvidia/</link>
+      <pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate>
+      
+      <guid>/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TX1</title>
       <link>/tags/tx1/</link>
       <pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate>
       
       <guid>/tags/tx1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>donkey</title>
+      <link>/tags/donkey/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/donkey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>donkeycar</title>
+      <link>/tags/donkeycar/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/donkeycar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nerual network</title>
+      <link>/tags/nerual-network/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/nerual-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tensorflow</title>
+      <link>/tags/tensorflow/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tensorflow/</guid>
       <description></description>
     </item>
     

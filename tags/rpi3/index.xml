@@ -1,15 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rpi3 on Rico.ai</title>
+    <title>RPI3 on Artoo.ai</title>
     <link>/tags/rpi3/</link>
-    <description>Recent content in Rpi3 on Rico.ai</description>
+    <description>Recent content in RPI3 on Artoo.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Jun 2019 12:29:40 +0600</lastBuildDate>
+    <lastBuildDate>Thu, 22 Aug 2019 12:29:40 +0600</lastBuildDate>
     
 	<atom:link href="/tags/rpi3/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Install ROS2 On Raspberry Pi 3 (RPi3)</title>
+      <link>/blog/ros2_rpi3_install/</link>
+      <pubDate>Thu, 22 Aug 2019 12:29:40 +0600</pubDate>
+      
+      <guid>/blog/ros2_rpi3_install/</guid>
+      <description>I had issues getting ROS2 on to RPi3. It all revolved around ArmV7 vs ARM64. All the linux distributions need to ARM64. It also has to be the latest version of Ubuntu. I tried many ways to get the latest version of Ubuntu (18.04), but then when using &amp;ldquo;apt&amp;rdquo; to install ROS2, or build ROS2 from source I always still got an error.
+I then saw that RPi3 not supports Ubuntu RPi3 Server edition.</description>
+    </item>
     
     <item>
       <title>R2D2 Arm Connected to RPI3 With PCA9685</title>

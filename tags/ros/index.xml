@@ -1,15 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ros on Rico.ai</title>
+    <title>ros on Artoo.ai</title>
     <link>/tags/ros/</link>
-    <description>Recent content in Ros on Rico.ai</description>
+    <description>Recent content in ros on Artoo.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Jan 2019 12:29:40 +0600</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 12:29:40 +0600</lastBuildDate>
     
 	<atom:link href="/tags/ros/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ROS1 Bridge</title>
+      <link>/blog/ros1-bridge-ros2/</link>
+      <pubDate>Wed, 18 Dec 2019 12:29:40 +0600</pubDate>
+      
+      <guid>/blog/ros1-bridge-ros2/</guid>
+      <description> Installation Install ROS and ROS2. Ensure both are installed on the machine.
+http://wiki.ros.org/melodic/Installation/Ubuntu
+https://github.com/ros2/ros1_bridge/blob/master/README.md#example-1a-ros-1-talker-and-ros-2-listener
+Run Bridge Source the ROS1 then the ROS2 workspaces. Make sure you do it in this order. At the very least, source the ROS workspace. Then set the master URI for ROS. Then start the bridge
+. /opt/ros/melodic/setup.bash export ROS_MASTER_URI=http://10.42.0.1:11311 ros2 run ros1_bridge dynamic_bridge  View ROS Topics as a test export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Get the ROS Topic Message Types ros2 topic list rostopic list rostopic type /camera/person/detection_image | rosmsg show  </description>
+    </item>
+    
+    <item>
+      <title>Install ROS2 On Raspberry Pi 3 (RPi3)</title>
+      <link>/blog/ros2_rpi3_install/</link>
+      <pubDate>Thu, 22 Aug 2019 12:29:40 +0600</pubDate>
+      
+      <guid>/blog/ros2_rpi3_install/</guid>
+      <description>I had issues getting ROS2 on to RPi3. It all revolved around ArmV7 vs ARM64. All the linux distributions need to ARM64. It also has to be the latest version of Ubuntu. I tried many ways to get the latest version of Ubuntu (18.04), but then when using &amp;ldquo;apt&amp;rdquo; to install ROS2, or build ROS2 from source I always still got an error.
+I then saw that RPi3 not supports Ubuntu RPi3 Server edition.</description>
+    </item>
     
     <item>
       <title>ROS Actions</title>
@@ -50,10 +73,12 @@ Goal is the arguments for the action.</description>
       <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
       
       <guid>/blog/intel_euclid/</guid>
-      <description> VNC Install RealVNC Client Connect to Euclid using the following IP
-10.42.0.1:5900  View ROS nodes export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Install Python Library To Test Euclid export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list  Run your Python application
-virtualenv -p python3 env source env/bin/activate  Install the LibRealSense Library https://github.com/IntelRealSense/librealsense/blob/v1.12.1/doc/installation.md
-sudo apt install libgtk-3-dev cmake .. -DBUILD_EXAMPLES:BOOL=true  </description>
+      <description>Connect to Website Connect to WIFI SSID Euclid_2541
+Go to the URL 10.42.0.1
+Use the web browser to control the camera.
+VNC Install RealVNC Client on Windows or Vinagre on Ubuntu Connect to Euclid using the following IP
+10.42.0.1:5900  Password is &amp;ldquo;euclid&amp;rdquo;
+View ROS nodes export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Install Python Library To Test Euclid export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list  Run your Python application</description>
     </item>
     
     <item>

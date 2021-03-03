@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Artoo.ai</title>
-    <link>/tags/python/</link>
-    <description>Recent content in python on Artoo.ai</description>
+    <title>ros2 on Artoo.ai</title>
+    <link>/tags/ros2/</link>
+    <description>Recent content in ros2 on Artoo.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Dec 2019 12:29:40 +0600</lastBuildDate>
     
-	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ros2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,20 +22,6 @@ http://wiki.ros.org/melodic/Installation/Ubuntu
 https://github.com/ros2/ros1_bridge/blob/master/README.md#example-1a-ros-1-talker-and-ros-2-listener
 Run Bridge Source the ROS1 then the ROS2 workspaces. Make sure you do it in this order. At the very least, source the ROS workspace. Then set the master URI for ROS. Then start the bridge
 . /opt/ros/melodic/setup.bash export ROS_MASTER_URI=http://10.42.0.1:11311 ros2 run ros1_bridge dynamic_bridge  View ROS Topics as a test export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Get the ROS Topic Message Types ros2 topic list rostopic list rostopic type /camera/person/detection_image | rosmsg show  </description>
-    </item>
-    
-    <item>
-      <title>Intel Euclid</title>
-      <link>/blog/intel_euclid/</link>
-      <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
-      
-      <guid>/blog/intel_euclid/</guid>
-      <description>Connect to Website Connect to WIFI SSID Euclid_2541
-Go to the URL 10.42.0.1
-Use the web browser to control the camera.
-VNC Install RealVNC Client on Windows or Vinagre on Ubuntu Connect to Euclid using the following IP
-10.42.0.1:5900  Password is &amp;ldquo;euclid&amp;rdquo;
-View ROS nodes export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Install Python Library To Test Euclid export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list  Run your Python application</description>
     </item>
     
   </channel>

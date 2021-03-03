@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Euclid on Rico.ai</title>
+    <title>euclid on Artoo.ai</title>
     <link>/tags/euclid/</link>
-    <description>Recent content in Euclid on Rico.ai</description>
+    <description>Recent content in euclid on Artoo.ai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Dec 2018 12:29:40 +0600</lastBuildDate>
@@ -17,10 +17,12 @@
       <pubDate>Tue, 18 Dec 2018 12:29:40 +0600</pubDate>
       
       <guid>/blog/intel_euclid/</guid>
-      <description> VNC Install RealVNC Client Connect to Euclid using the following IP
-10.42.0.1:5900  View ROS nodes export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Install Python Library To Test Euclid export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list  Run your Python application
-virtualenv -p python3 env source env/bin/activate  Install the LibRealSense Library https://github.com/IntelRealSense/librealsense/blob/v1.12.1/doc/installation.md
-sudo apt install libgtk-3-dev cmake .. -DBUILD_EXAMPLES:BOOL=true  </description>
+      <description>Connect to Website Connect to WIFI SSID Euclid_2541
+Go to the URL 10.42.0.1
+Use the web browser to control the camera.
+VNC Install RealVNC Client on Windows or Vinagre on Ubuntu Connect to Euclid using the following IP
+10.42.0.1:5900  Password is &amp;ldquo;euclid&amp;rdquo;
+View ROS nodes export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list rosnode list rosmsg list  Install Python Library To Test Euclid export ROS_MASTER_URI=http://10.42.0.1:11311 rostopic list  Run your Python application</description>
     </item>
     
     <item>
