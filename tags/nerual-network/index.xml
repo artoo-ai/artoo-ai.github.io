@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nerual network on Artoo AI</title><link>https://www.artoo.ai/tags/nerual-network/</link><description>Recent content in nerual network on Artoo AI</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://www.artoo.ai/tags/nerual-network/index.xml" rel="self" type="application/rss+xml"/><item><title>Donkeycar Test 4</title><link>https://www.artoo.ai/p/donkeycar-test-4/</link><pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate><guid>https://www.artoo.ai/p/donkeycar-test-4/</guid><description>&lt;h2 id="descriptions">Descriptions&lt;/h2>
+&lt;p>Descriptions
+I am testing here the number of epochs to use. I am monitoring the Loss to make sure it drops and if it plateaus. If it plateaus, where does it begin to plateau. I am also using a very small dropout and using RMSPROP. The learning rate is left default.&lt;/p>
+&lt;p>Good results will have the car remaining on the track consitently. It may drive off, in certain areas if the training is not good, but it should for the most part stay within the lines. The video shows the result of the parameters.&lt;/p>
+&lt;h2 id="parameters">Parameters&lt;/h2>
+&lt;ul>
+&lt;li>50 Epochs
+&lt;ul>
+&lt;li>Typically only need 23 for early stop to end&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>RMSPROP
+&lt;ul>
+&lt;li>Could also use Adam&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>10% Dropout
+&lt;ul>
+&lt;li>Typically you see 50%&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1e-4 Learning Rate
+&lt;ul>
+&lt;li>A default value to start with&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="results">Results&lt;/h2>
+&lt;p>&lt;code>Pretty good results. Went off the track in certain areas.&lt;/code>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/REoOGzdBbes"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">BATCH_SIZE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">128&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">TRAIN_TEST_SPLIT&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Keras settings&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">TRAINING_MODEL&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">MODEL_TYPE_CATEGORICAL&lt;/span> &lt;span class="c1"># Type of Neural Network model&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">IS_TENSORBOARD&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span> &lt;span class="c1"># Create Tensorboard data&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">IS_PLOT_RESULTS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span> &lt;span class="c1"># Create matplotlib plots&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">IS_EARLY_STOP&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">False&lt;/span> &lt;span class="c1"># If no improve, stop training early&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">EARLY_STOP_COUNT&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span> &lt;span class="c1"># Number of no changes before stopping&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">LEARNING_RATE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">1.0e-4&lt;/span> &lt;span class="c1"># Learn rate. Decrease to fix bias&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">EPOCHS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">50&lt;/span> &lt;span class="c1"># Number of epochs to run.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">DROPOUT_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.1&lt;/span> &lt;span class="c1"># First Dropout percentage&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">DROPOUT_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.1&lt;/span> &lt;span class="c1"># Second Dropout percentage&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">OPTIMIZER&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">OPTIMIZER_TYPE_RMSPROP&lt;/span> &lt;span class="c1"># Type of Optimizer to use.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">LOSS_WEIGHT_ANGLE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.9&lt;/span> &lt;span class="c1"># Loss weight for Angles&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">LOSS_WEIGHT_THROTTLE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.001&lt;/span> &lt;span class="c1"># Loss Weight for Throttle &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;figure>&lt;img src="loss.png"
+alt="Test 4 Loss Plot"/>&lt;figcaption>
+&lt;h4>Test 4 Loss Plot&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;figure>&lt;img src="angle_out_loss.png"
+alt="Test 4 Angle Out Loss Plot"/>&lt;figcaption>
+&lt;h4>Test 4 Angle Out Loss Plot&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;figure>&lt;img src="test4/angle_out_acc.png"
+alt="Test 4 Angle Out Accuracy Plot"/>&lt;figcaption>
+&lt;h4>Test 4 Angle Out Accuracy Plot&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;figure>&lt;img src="throttle_out_loss.png"
+alt="Test 4 Throttle Out Loss Plot"/>&lt;figcaption>
+&lt;h4>Test 4 Throttle Out Loss Plot&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;figure>&lt;img src="throttle_out_acc.png"
+alt="Test 4 Throttle Out Accuracy Plot"/>&lt;figcaption>
+&lt;h4>Test 4 Throttle Out Accuracy Plot&lt;/h4>
+&lt;/figcaption>
+&lt;/figure></description></item></channel></rss>

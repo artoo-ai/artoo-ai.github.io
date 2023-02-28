@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ros on Artoo AI</title><link>https://www.artoo.ai/tags/ros/</link><description>Recent content in ros on Artoo AI</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 18 Dec 2019 12:29:40 +0600</lastBuildDate><atom:link href="https://www.artoo.ai/tags/ros/index.xml" rel="self" type="application/rss+xml"/><item><title>ROS1 Bridge</title><link>https://www.artoo.ai/p/ros1-bridge/</link><pubDate>Wed, 18 Dec 2019 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/ros1-bridge/</guid><description>&lt;h2 id="installation">Installation&lt;/h2>
+&lt;p>Install ROS and ROS2. Ensure both are installed on the machine.&lt;/p>
+&lt;p>&lt;a class="link" href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank" rel="noopener"
+>http://wiki.ros.org/melodic/Installation/Ubuntu&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/ros2/ros1_bridge/blob/master/README.md#example-1a-ros-1-talker-and-ros-2-listener" target="_blank" rel="noopener"
+>https://github.com/ros2/ros1_bridge/blob/master/README.md#example-1a-ros-1-talker-and-ros-2-listener&lt;/a>&lt;/p>
+&lt;h2 id="run-bridge">Run Bridge&lt;/h2>
+&lt;p>Source the ROS1 then the ROS2 workspaces. Make sure you do it in this order. At the very least, source the ROS workspace. Then set the master URI for ROS. Then start the bridge&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> . /opt/ros/melodic/setup.bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ROS_MASTER_URI&lt;/span>&lt;span class="o">=&lt;/span>http://10.42.0.1:11311
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ros2 run ros1_bridge dynamic_bridge
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="view-ros-topics-as-a-test">View ROS Topics as a test&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ROS_MASTER_URI&lt;/span>&lt;span class="o">=&lt;/span>http://10.42.0.1:11311
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rosnode list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rosmsg list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="get-the-ros-topic-message-types">Get the ROS Topic Message Types&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ros2 topic list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic &lt;span class="nb">type&lt;/span> /camera/person/detection_image &lt;span class="p">|&lt;/span> rosmsg show
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Install ROS2 On Raspberry Pi 3 (RPi3)</title><link>https://www.artoo.ai/p/install-ros2-on-raspberry-pi-3-rpi3/</link><pubDate>Thu, 22 Aug 2019 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/install-ros2-on-raspberry-pi-3-rpi3/</guid><description>&lt;p>I had issues getting ROS2 on to RPi3. It all revolved around ArmV7 vs ARM64. All the linux distributions need to ARM64. It also has to be the latest version of Ubuntu. I tried many ways to get the latest version of Ubuntu (18.04), but then when using &amp;ldquo;apt&amp;rdquo; to install ROS2, or build ROS2 from source I always still got an error.&lt;/p>
+&lt;p>I then saw that RPi3 not supports Ubuntu RPi3 Server edition. Since the ROS2 on the RPi3 I do not plan to use any of the visual tools, it seemed fine to use Ubuntu Server edition.&lt;/p>
+&lt;h2 id="download-latest-ubuntu-server">Download Latest Ubuntu Server&lt;/h2>
+&lt;p>&lt;a class="link" href="http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.2-preinstalled-server-arm64&amp;#43;raspi3.img.xz" target="_blank" rel="noopener"
+>http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.2-preinstalled-server-arm64+raspi3.img.xz&lt;/a>&lt;/p>
+&lt;p>There may be a newer version when you read this, so you can look here for the latest:
+&lt;a class="link" href="http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/" target="_blank" rel="noopener"
+>http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/&lt;/a>&lt;/p>
+&lt;p>You are looking for:
+preinstalled-server-arm64+raspi3.img.xz&lt;/p>
+&lt;p>Download the latest version of Ubuntu 18.04&lt;/p>
+&lt;h2 id="create-sd-memory-card-with-ubuntu">Create SD Memory Card with Ubuntu&lt;/h2>
+&lt;p>Untar the image on your system.&lt;/p>
+&lt;p>Then burn the image to the SD card using Etcher
+&lt;a class="link" href="https://www.balena.io/etcher/" target="_blank" rel="noopener"
+>https://www.balena.io/etcher/&lt;/a>&lt;/p>
+&lt;h2 id="load-the-ubuntu">Load the Ubuntu&lt;/h2>
+&lt;p>Install the SD Card into the RPi3&lt;/p>
+&lt;p>Boot up the RPi3&lt;/p>
+&lt;p>Create a password for the ubuntu user.&lt;/p>
+&lt;h3 id="install-rpigpio">Install RPI.GPIO&lt;/h3>
+&lt;p>The current version of RPI.GPIO does not work on this version of Ubuntu because Ubuntu Server 18.04 does not list the RPI version type correctly compared to Raspbain. So you need to use a patched version.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install adafruit-circuitpython-servokit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo uninstall jetson.GPIO
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install mercurial
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pip3 install --upgrade hg+http://hg.code.sf.net/p/raspberry-gpio-python/code#egg&lt;span class="o">=&lt;/span>RPi.GPIO
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="setup-adafruit-packages">Setup Adafruit Packages&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">BLINKA_FORCEBOARD&lt;/span>&lt;span class="o">=&lt;/span>RASPBERRY_PI_3B
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">BLINKA_FORCECHIP&lt;/span>&lt;span class="o">=&lt;/span>BCM2XXX
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>To determine board and chip type review results of the following commands.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat /proc/device-tree/mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The list of board and chips options are in the following files:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/home/ubuntu/.local/lib/python3.6/site-packages/adafruit_platformdetect/chip.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/home/ubuntu/.local/lib/python3.6/site-packages/adafruit_platformdetect/board.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Modify board.py&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@property&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">any_raspberry_pi&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="bp">self&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;Check whether the current board is any Raspberry Pi.&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">environ&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;BLINKA_FORCEBOARD&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">RASPBERRY_PI_3B&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="bp">self&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">_pi_rev_code&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="ow">is&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="kc">None&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="add-i2c-permissions">Add I2C Permissions&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo groupadd i2c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown :i2c /dev/i2c-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod g+rw /dev/i2c-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo usermod -aG i2c ubuntu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The default user name is &amp;ldquo;ubuntu&amp;rdquo;, so replace &amp;ldquo;ubuntu&amp;rdquo; in usermod command if are using a different user name.&lt;/p>
+&lt;p>Then logout and login or restart your SSH to have changes take affect. When you log back in, you will need to export your options board configuration again.&lt;/p>
+&lt;h2 id="install-ros2">Install ROS2&lt;/h2>
+&lt;p>Follow all the instructions here to install ROS2. I did not run into any issues.&lt;/p>
+&lt;p>&lt;a class="link" href="https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/" target="_blank" rel="noopener"
+>https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/&lt;/a>&lt;/p>
+&lt;h2 id="test-ros2-installation">Test ROS2 Installation&lt;/h2>
+&lt;p>Now to test the installation. Follow all these instructions here:
+&lt;a class="link" href="https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/" target="_blank" rel="noopener"
+>https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">mkdir -p ~/ros2_example_ws/src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd ~/ros2_example_ws
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git clone https://github.com/ros2/examples src/examples
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd ~/ros2_example_ws/src/examples/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git checkout $ROS_DISTRO
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd ~/ros2_example_ws
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Build the Publisher and Subcriber examples.&lt;/p>
+&lt;p>You can use the tab to autocomplete the ros2 commands.&lt;/p>
+&lt;h3 id="publisher">Publisher&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~/ros2_example_ws/src/examples/rclpy/topics/minimal_publisher/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">colcon build --symlink-install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">. install/setup.bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You should see an output&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 17&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 18&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 19&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 20&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 21&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 22&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 23&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 24&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 25&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[INFO] [minimal_publisher]: Publishing: &amp;#34;Hello World: 26&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You will need to create an SSH connection to have a new terminal window open to start another process. Note the IP address of the RPi3 board when you logged in. Or you can use the &amp;ldquo;&amp;amp;&amp;rdquo; at the end of the ROS2 command to start the command in the background. You will then need to use &amp;ldquo;ps -aux&amp;rdquo; and &amp;ldquo;kill&amp;rdquo; to stop the process later.&lt;/p>
+&lt;h3 id="subscriber">Subscriber&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~/ros2_example_ws/src/examples/rclpy/topics/minimal_subscriber/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">colcon build --symlink-install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">. install/setup.bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You should see an output&lt;/p>
+&lt;p>If you see the 2 talking to each other, then everything is working&lt;/p></description></item><item><title>ROS Actions</title><link>https://www.artoo.ai/p/ros-actions/</link><pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/ros-actions/</guid><description>&lt;h2 id="ros-actions">ROS Actions&lt;/h2>
+&lt;p>Similar to an ROS Service except you can do other things while the action is running. Actions are asynchronous.&lt;/p>
+&lt;h3 id="action-servers-and-action-clients">Action Servers and Action Clients&lt;/h3>
+&lt;p>&lt;strong>Action Server&lt;/strong> contains the functionality&lt;/p>
+&lt;p>&lt;strong>Action Client&lt;/strong> calls the Action Server to perform a functionality.&lt;/p>
+&lt;h2 id="commands">Commands&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rostopic list &lt;span class="c1"># Look for /&amp;lt;action_server_name&amp;gt;/&amp;lt;unique_msg&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="action-message">Action Message&lt;/h2>
+&lt;p>Message that defines an action. It contains 3 parts: Goal, Result, Feedback.&lt;/p>
+&lt;p>&lt;strong>Goal&lt;/strong> is the arguments for the action.&lt;/p>
+&lt;p>&lt;strong>Result&lt;/strong> is the result when the action is complete.&lt;/p>
+&lt;p>&lt;strong>Feedback&lt;/strong> is feedback as the action is in progress&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Goal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">int32&lt;/span> &lt;span class="n">nseconds&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">---&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Result&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sensor_msgs&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">CompressedImage&lt;/span>&lt;span class="p">[]&lt;/span> &lt;span class="n">allPictures&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">---&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Feedback&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sensor_msgs&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">CompressedImage&lt;/span> &lt;span class="n">lastImage&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="python-ros-action-client">Python ROS Action Client&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">actionlib&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">ardrone_as.msg&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">ArdroneAction&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ArdroneGoal&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ArdroneResult&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ArdroneFeedback&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">nImage&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Feedback callback&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">feedback_callback&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">feedback&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">global&lt;/span> &lt;span class="n">nImage&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;[Feedback] image n.&lt;/span>&lt;span class="si">%d&lt;/span>&lt;span class="s1"> received&amp;#39;&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="n">nImage&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">nImage&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Init the action client node&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">init_node&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;drone_action_client&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Create connection to the action server&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">client&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">actionlib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">SimpleActionClient&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/ardrone_action_server&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">ArdroneAction&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># waits until the action server is up and running&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">client&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">wait_for_server&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># create a goal to send to the action server&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">goal&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ArdroneGoal&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">goal&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">nseconds&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Send the goal to the action server, specifying which feedback function&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># to call when feeback received&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">client&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">send_goal&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">goal&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">feeback_cb&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">feedback_callback&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">client&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">wait_for_result&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;[Result] State: &lt;/span>&lt;span class="si">%d&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">client&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get_state&lt;/span>&lt;span class="p">()))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="wait-for-result">Wait for Result&lt;/h3>
+&lt;p>Using ```wait_for_result()`` is like using a service.&lt;/p>
+&lt;h3 id="get-state">Get State&lt;/h3>
+&lt;p>Instead of waiting for result, you can call &lt;code>get_state()&lt;/code> and continue to run while it is running.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="mi">0&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">PENDING&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ACTIVE&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">DONE&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">3&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">WARN&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">4&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ERROR&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Use a While loop and while the value returned is less than 2, you know it is still running.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">PENDING&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ACTIVE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">DONE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">WARN&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ERROR&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">state_result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">client&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get_state&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Rate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">loginfo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;state_result &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">state_result&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">while&lt;/span> &lt;span class="n">state_result&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">DONE&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">loginfo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Doing Stuff while waiting for the server to give a result...&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rate&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sleep&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">state_result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">client&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">get_state&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">loginfo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;state_result: &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">state_result&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">loginfo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;[Result] State: &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">str&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">state_result&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">state_result&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">ERROR&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">logerr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Something went wrong in the server side&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">state_result&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">WARN&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">logwarn&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;There is a warning in the Server Side&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="more-details">More Details&lt;/h2>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/LoRXdNMuslQ"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div></description></item><item><title>ROS Service</title><link>https://www.artoo.ai/p/ros-service/</link><pubDate>Fri, 04 Jan 2019 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/ros-service/</guid><description>&lt;h2 id="ros-service">ROS Service&lt;/h2>
+&lt;p>A service is a node that must run and you must wait until it has completed.&lt;/p>
+&lt;h2 id="commands">Commands&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rosservice list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rosservice info &amp;lt;service name&amp;gt; &lt;span class="c1"># Node, URI, Type and Args&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rossrv show &amp;lt;service name&amp;gt; &lt;span class="c1"># Args and return type&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rosservice call &amp;lt;service name&amp;gt; &amp;lt;args&amp;gt; &lt;span class="c1"># &amp;#34;{}&amp;#34; is empty arg&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="python-call-ros-service">Python Call ROS Service&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">gazebo_msgs.srv&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">DeleteModel&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">DeleteModelRequest&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">sys&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">init_node&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;service_client&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">wait_for_service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/gazebo/delete_model&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># Wait for the service client to be running&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">delete_model_service&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">ServiceProxy&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/gazebo/delete_model&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">DeleteModel&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># Create the connection to the service&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">kk&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">DeleteRequest&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">kk&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">model_name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;bowl_1&amp;#34;&lt;/span> &lt;span class="c1"># Create an Arg for the service&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">delete_model_service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">kk&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="python-create-an-ros-service">Python Create an ROS Service&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">std_srvs.srv&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Empty&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">EmptyResponse&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">my_callback&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span> &lt;span class="s2">&amp;#34;My_callback has been called&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">EmptyResponse&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#return MyServiceResponse(len(request.words.split()))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">init_node&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;service_server&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">my_service&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Service&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/my_service&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Empty&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">my_callback&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">spin&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># maintain the service open&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="call-service">Call Service&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rosservice call /my_service &lt;span class="s2">&amp;#34;{}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="create-a-catkin-service-project">Create a Catkin Service Project&lt;/h2>
+&lt;h3 id="create-project">Create Project&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">roscd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ../src/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">catkin_create_pkg my_custom_srv_msg_pkg rospy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">roscd my_custom_srv_msg_pkg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir srv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim srv/MyCustomServiceMessage.srv
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="create-service-file">Create Service File&lt;/h3>
+&lt;p>Service file containing the arguments and return type.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">float64&lt;/span> &lt;span class="n">radius&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">int32&lt;/span> &lt;span class="n">repititions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">---&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">bool&lt;/span> &lt;span class="n">success&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="modify-cmakelisttxt-and-packagexml">Modify CMakeList.txt and Package.xml&lt;/h3>
+&lt;h4 id="cmakelisttxt">CMakeList.txt&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">find_package(catkin&lt;/span> &lt;span class="err">REQUIRED&lt;/span> &lt;span class="err">COMPONENTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">std_msgs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">message_generation&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">add_service_files(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">FILES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">MyCustomServiceMessage.srv&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">catkin_package(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">CATKIN_DEPENDS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Uncomment area&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">generate_messages(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">DEPENDENCIES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">std_msgs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="packagexml">Package.xml&lt;/h3>
+&lt;p>Add Lines&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;build_depend&amp;gt;&lt;/span>message_generation&lt;span class="nt">&amp;lt;/build_depend&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;run_depend&amp;gt;&lt;/span>message_runtime&lt;span class="nt">&amp;lt;/run_depend&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="build-project">Build Project&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">roscd&lt;span class="p">;&lt;/span>&lt;span class="nb">cd&lt;/span> ..
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">catkin_make
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> devel/setup.bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="test-project">Test Project&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rossrv list &lt;span class="p">|&lt;/span> grep MyCustomServiceMessage
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rossrv show my_custom_srv_msg_pkg/MyCustomServiceMessage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="more-details">More Details&lt;/h2>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/bKXahdK2yxA"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div></description></item><item><title>ROS Topic</title><link>https://www.artoo.ai/p/ros-topic/</link><pubDate>Tue, 01 Jan 2019 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/ros-topic/</guid><description>&lt;p>Notes about an ROS Topic. This will describe a basic publisher and subscriber topic. Where to find the list of topics and the list of possible messages for a topic. How to install a new message for a topic.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rostopic list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rosmsg list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic &lt;span class="nb">type&lt;/span> &amp;lt;topic&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic &lt;span class="nb">echo&lt;/span> &amp;lt;topic&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic info &amp;lt;topic&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rostopic hz &amp;lt;topic&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="publisher">Publisher&lt;/h2>
+&lt;p>Publish messages into a topic&lt;/p>
+&lt;h3 id="publish-in-code">Publish in Code&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">geometry_msgs.msg&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Twist&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">init_node&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;robot_mover&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># Create Publisher&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">pub&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Publisher&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/cmd_move&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Twist&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">queue_size&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># Set the data type for the publisher&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Rate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 2hz&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">move&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Twist&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># Create a Twist object&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">move&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">linear&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.5&lt;/span> &lt;span class="c1"># Move forward on x 0.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">move&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">angular&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">z&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mf">0.5&lt;/span> &lt;span class="c1"># Move at an anglular rate of 0.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">while&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">is_shutdown&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">pub&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">publish&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">move&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># Publish the move&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rate&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sleep&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># Maintain the refresh rate&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="publish-on-commandline">Publish on Commandline&lt;/h3>
+&lt;p>Manually publish in command line&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rostopic pub /cmd_move geometry_msgs/Twist &lt;span class="s2">&amp;#34;linear: x: 0.5 y: 0.0 z: 0.0 angular: x: 0.0 y: 0.0 z: 0.5&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>rostopic pub &amp;lt;topic_name&amp;gt; &amp;lt;message_type&amp;gt; &amp;lt;value&amp;gt;&lt;/code>&lt;/p>
+&lt;p>You can use the &amp;lsquo;double tab&amp;rsquo; to autofil the value.&lt;/p>
+&lt;h2 id="subscriber">Subscriber&lt;/h2>
+&lt;p>Read messages from a topic&lt;/p>
+&lt;h3 id="subscribe-in-code">Subscribe in Code&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">std_msgs.msg&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Int32&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">callback&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">msg&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">msg&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">init_node&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;topic_subscriber&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sub&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Subscriber&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/counter&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Int32&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">callback&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">rospy&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">spin&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="determine-the-message-type-of-the-topic">Determine the message type of the topic&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rostopic info /counter
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This will return back the data type, publishers and subscribers for the given topic.&lt;/p>
+&lt;h2 id="create-a-custom-data-type">Create a Custom Data Type&lt;/h2>
+&lt;p>Create a directory in the package&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">roscd my_new_package
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir msg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="create-the-data-type">Create the Data type&lt;/h3>
+&lt;p>Create a file within the new directory for the new data type
+Call it &lt;strong>Vector.msg&lt;/strong>. Add the following in to the file&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">float32&lt;/span> &lt;span class="n">magnitude&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">float32&lt;/span> &lt;span class="n">direction&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="edit-cmakeliststxt">Edit CMakeLists.txt&lt;/h3>
+&lt;p>Edit &lt;strong>CMakeLists.txt&lt;/strong> in the package to find the new data type.
+Look for &lt;strong>find_package(catkin REQUIRED COMPONENTS &amp;hellip;)&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">find_package(catkin&lt;/span> &lt;span class="err">REQUIRED&lt;/span> &lt;span class="err">COMPONENTS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">rospy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">std_msgs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">message_generation&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Again within &lt;strong>CMakeLists.txt&lt;/strong> search for &lt;strong>catkin_package(&amp;hellip;)&lt;/strong> and uncomment the following line and append it if it contains other things passed CAKTIN_DEPENDS.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">catkin_package(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">CATKIN_DEPENDS&lt;/span> &lt;span class="err">message_runtime&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Again within &lt;strong>CMakeLists.txt&lt;/strong> search for &lt;strong>add_message_files(&amp;hellip;)&lt;/strong> and uncomment it and add the new messages.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">add_message_files(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">FILES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">Vector.msg&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Again within &lt;strong>CMakeLists.txt&lt;/strong> search for &lt;strong>generate_messages(&amp;hellip;)&lt;/strong> and uncomment it.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="err">generate_messages(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">DEPENDENCIES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">std_msgs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Save the &lt;strong>CMakeLists.txt&lt;/strong> file.&lt;/p>
+&lt;h3 id="edit-packagexml">Edit package.xml&lt;/h3>
+&lt;p>Edit &lt;strong>package.xml&lt;/strong> in the package to find our new data type. Find &lt;strong>build_depend&lt;/strong>&amp;hellip;&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;build_depend&amp;gt;&lt;/span>message_generation&lt;span class="nt">&amp;lt;/build_depend&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;run_depend&amp;gt;&lt;/span>message_runtime&lt;span class="nt">&amp;lt;/run_depend&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="compile-code">Compile Code&lt;/h3>
+&lt;p>Go to your catkin workspace and run catkin_make&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> catkin_ws
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">catkin_make
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="verify-data-type-exist">Verify Data Type Exist&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rosmsg show Vector
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="stop-topic">Stop Topic&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">rosnode &lt;span class="nb">kill&lt;/span> /cmd_move
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>All the details for this can be found in this video.
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/GxpS18INc9s"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;/p>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/0BxVPCInS3M"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div></description></item><item><title>ROS Intel Euclid Install on Nvidia Jeston TX1</title><link>https://www.artoo.ai/p/ros-intel-euclid-install-on-nvidia-jeston-tx1/</link><pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/ros-intel-euclid-install-on-nvidia-jeston-tx1/</guid><description>&lt;h2 id="modify-the-kernal-for-uvcvideo">Modify the kernal for uvcvideo&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/jetsonhacks/installLibrealsenseTX1.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd installLibrealsenseTX1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Modify the address to use the Euclid libRealsense
+Modify the address to use the Euclid version of libRealSense
+&lt;a class="link" href="https://github.com/IntelEuclid/librealsense" target="_blank" rel="noopener"
+>https://github.com/IntelEuclid/librealsense&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./installLibrealsense
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Make sure the folder $HOME/librealsense does not exist. If it does, delete the file.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt install motion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="get-motion-installed">Get Motion Installed&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">wget https://github.com/Motion-Project/motion/releases/download/release-4.2/xenial_motion_4.2-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install xenial_motion_4.2-1_amd64.deb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="install-ros">Install ROS&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/jetsonhacks/installROSTX1.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd installROSTX1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./installROSTX1 -p ros-kinetic-desktop-full
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> ./setupWorkspace.sh catkinWS
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2016/10/12/robot-operating-system-ros-on-nvidia-jetson-tx1/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2016/10/12/robot-operating-system-ros-on-nvidia-jetson-tx1/&lt;/a>&lt;/p>
+&lt;h2 id="install-reaslsense-with-ros">Install Reaslsense with ROS&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/jetsonhacks/installRealSenseROSTX1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd installRealSenseROSTX1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Modify the address to use the Euclid version of libRealSense
+&lt;a class="link" href="https://github.com/IntelEuclid/librealsense" target="_blank" rel="noopener"
+>https://github.com/IntelEuclid/librealsense&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./installRealSenseROSTX1 catkinWS
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2016/10/26/intel-realsense-package-for-ros-on-nvidia-jetson-tx1/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2016/10/26/intel-realsense-package-for-ros-on-nvidia-jetson-tx1/&lt;/a>&lt;/p>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd /usr/lib/aarch64-linux-gnu/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ln -sf tegra/libGL.so libGL.so
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;p>This will run the script file to install all the missing files and all the files needed for LibRealsense to run on the system.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="run-the-examples">Run the examples&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd $HOME/librealsense/build/example
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Run any of the examples. Make sure the Euclid is plugged in the USB port and makes sure it is turned on.&lt;/p>
+&lt;hr>
+&lt;h3 id="wifi-ip">Wifi IP&lt;/h3>
+&lt;p>10.42.0.1&lt;/p>
+&lt;hr>
+&lt;h3 id="euclid-not-recongized-by-usb-port">Euclid not recongized by USB Port&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo usermod -a -G dialout $USER
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You will have to logout and then log back in before the group change is recognized.&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/IntelRealSense/librealsense/issues/195" target="_blank" rel="noopener"
+>https://github.com/IntelRealSense/librealsense/issues/195&lt;/a>&lt;/p>
+&lt;h3 id="ubuntu-menu-bars-not-seen-after-reboot">Ubuntu Menu Bars not seen after reboot&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">rm -rf ~/.cache/compizconfig-1/*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">setsid unity
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://askubuntu.com/questions/761035/ubuntu-16-04-no-menu-bar-or-launcher-help" target="_blank" rel="noopener"
+>https://askubuntu.com/questions/761035/ubuntu-16-04-no-menu-bar-or-launcher-help&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h3 id="setup-realsense-for-ros">Setup Realsense for ROS&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt-get install ros-kinetic-realsense-camera
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;hr>
+&lt;p>I get an error message when install the ros kinetic realsense camera from APT:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ERROR: Module uvcvideo not found.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="handle-the-error">Handle the error&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md#video4linux-backend-preparation" target="_blank" rel="noopener"
+>https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md#video4linux-backend-preparation&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2016/10/06/intel-realsense-camera-installation-nvidia-jetson-tx1/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2016/10/06/intel-realsense-camera-installation-nvidia-jetson-tx1/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2017/08/14/intel-realsense-camera-librealsense-nvidia-jetson-tx-dev-kits/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2017/08/14/intel-realsense-camera-librealsense-nvidia-jetson-tx-dev-kits/&lt;/a>&lt;/p></description></item></channel></rss>

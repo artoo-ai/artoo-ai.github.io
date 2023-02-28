@@ -1,0 +1,151 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="ROS Actions.  Similar to an ROS Service except you can do other things while the action is running. Actions are asynchronous."><title>ROS Actions</title><link rel=canonical href=https://www.artoo.ai/p/ros-actions/><link rel=stylesheet href=/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css><meta property="og:title" content="ROS Actions"><meta property="og:description" content="ROS Actions.  Similar to an ROS Service except you can do other things while the action is running. Actions are asynchronous."><meta property="og:url" content="https://www.artoo.ai/p/ros-actions/"><meta property="og:site_name" content="Artoo AI"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="ros"><meta property="article:tag" content="ros action"><meta property="article:published_time" content="2019-01-04T12:29:40+06:00"><meta property="article:modified_time" content="2019-01-04T12:29:40+06:00"><meta name=twitter:title content="ROS Actions"><meta name=twitter:description content="ROS Actions.  Similar to an ROS Service except you can do other things while the action is running. Actions are asynchronous."></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_huab5b541e7bebe9c009dd54bdf4e4708a_16395_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>Artoo AI</a></h1><h2 class=site-description>Artoo AI. Tutorials for creating Artoo [R2D2].</h2></div></header><ol class=social-menu><li><a href=https://github.com/artoo-ai target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://github.com/ricorx7 target=_blank title=GitHub-ricorx7 rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#ros-actions>ROS Actions</a><ol><li><a href=#action-servers-and-action-clients>Action Servers and Action Clients</a></li></ol></li><li><a href=#commands>Commands</a></li><li><a href=#action-message>Action Message</a></li><li><a href=#python-ros-action-client>Python ROS Action Client</a><ol><li><a href=#wait-for-result>Wait for Result</a></li><li><a href=#get-state>Get State</a></li></ol></li><li><a href=#more-details>More Details</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><div class=article-title-wrapper><h2 class=article-title><a href=/p/ros-actions/>ROS Actions</a></h2><h3 class=article-subtitle>ROS Actions. Similar to an ROS Service except you can do other things while the action is running. Actions are asynchronous.</h3></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Jan 04, 2019</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h2 id=ros-actions>ROS Actions</h2><p>Similar to an ROS Service except you can do other things while the action is running. Actions are asynchronous.</p><h3 id=action-servers-and-action-clients>Action Servers and Action Clients</h3><p><strong>Action Server</strong> contains the functionality</p><p><strong>Action Client</strong> calls the Action Server to perform a functionality.</p><h2 id=commands>Commands</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>rostopic list  <span class=c1># Look for /&lt;action_server_name&gt;/&lt;unique_msg&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=action-message>Action Message</h2><p>Message that defines an action. It contains 3 parts: Goal, Result, Feedback.</p><p><strong>Goal</strong> is the arguments for the action.</p><p><strong>Result</strong> is the result when the action is complete.</p><p><strong>Feedback</strong> is feedback as the action is in progress</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Goal</span>
+</span></span><span class=line><span class=cl><span class=n>int32</span> <span class=n>nseconds</span>
+</span></span><span class=line><span class=cl><span class=o>---</span>
+</span></span><span class=line><span class=cl><span class=c1># Result</span>
+</span></span><span class=line><span class=cl><span class=n>sensor_msgs</span><span class=o>/</span><span class=n>CompressedImage</span><span class=p>[]</span> <span class=n>allPictures</span>
+</span></span><span class=line><span class=cl><span class=o>---</span>
+</span></span><span class=line><span class=cl><span class=c1># Feedback</span>
+</span></span><span class=line><span class=cl><span class=n>sensor_msgs</span><span class=o>/</span><span class=n>CompressedImage</span> <span class=n>lastImage</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=python-ros-action-client>Python ROS Action Client</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>rospy</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>actionlib</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>ardrone_as.msg</span> <span class=kn>import</span> <span class=n>ArdroneAction</span><span class=p>,</span> <span class=n>ArdroneGoal</span><span class=p>,</span> <span class=n>ArdroneResult</span><span class=p>,</span> <span class=n>ArdroneFeedback</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>nImage</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Feedback callback</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>feedback_callback</span><span class=p>(</span><span class=n>feedback</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>global</span> <span class=n>nImage</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;[Feedback] image n.</span><span class=si>%d</span><span class=s1> received&#39;</span><span class=o>%</span><span class=n>nImage</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>nImage</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Init the action client node</span>
+</span></span><span class=line><span class=cl><span class=n>rospy</span><span class=o>.</span><span class=n>init_node</span><span class=p>(</span><span class=s1>&#39;drone_action_client&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Create connection to the action server</span>
+</span></span><span class=line><span class=cl><span class=n>client</span> <span class=o>=</span> <span class=n>actionlib</span><span class=o>.</span><span class=n>SimpleActionClient</span><span class=p>(</span><span class=s1>&#39;/ardrone_action_server&#39;</span><span class=p>,</span> <span class=n>ArdroneAction</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># waits until the action server is up and running</span>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>wait_for_server</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># create a goal to send to the action server</span>
+</span></span><span class=line><span class=cl><span class=n>goal</span> <span class=o>=</span> <span class=n>ArdroneGoal</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>goal</span><span class=o>.</span><span class=n>nseconds</span> <span class=o>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Send the goal to the action server, specifying which feedback function</span>
+</span></span><span class=line><span class=cl><span class=c1># to call when feeback received</span>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>send_goal</span><span class=p>(</span><span class=n>goal</span><span class=p>,</span> <span class=n>feeback_cb</span><span class=o>=</span><span class=n>feedback_callback</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>client</span><span class=o>.</span><span class=n>wait_for_result</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;[Result] State: </span><span class=si>%d</span><span class=s1>&#39;</span><span class=o>%</span><span class=p>(</span><span class=n>client</span><span class=o>.</span><span class=n>get_state</span><span class=p>()))</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=wait-for-result>Wait for Result</h3><p>Using ```wait_for_result()`` is like using a service.</p><h3 id=get-state>Get State</h3><p>Instead of waiting for result, you can call <code>get_state()</code> and continue to run while it is running.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=mi>0</span> <span class=o>=</span> <span class=n>PENDING</span>
+</span></span><span class=line><span class=cl><span class=mi>1</span> <span class=o>=</span> <span class=n>ACTIVE</span>
+</span></span><span class=line><span class=cl><span class=mi>2</span> <span class=o>=</span> <span class=n>DONE</span>
+</span></span><span class=line><span class=cl><span class=mi>3</span> <span class=o>=</span> <span class=n>WARN</span>
+</span></span><span class=line><span class=cl><span class=mi>4</span> <span class=o>=</span> <span class=n>ERROR</span>
+</span></span></code></pre></td></tr></table></div></div><p>Use a While loop and while the value returned is less than 2, you know it is still running.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=n>PENDING</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl><span class=n>ACTIVE</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=n>DONE</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl><span class=n>WARN</span> <span class=o>=</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl><span class=n>ERROR</span> <span class=o>=</span> <span class=mi>4</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>state_result</span> <span class=o>=</span> <span class=n>client</span><span class=o>.</span><span class=n>get_state</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>rate</span> <span class=o>=</span> <span class=n>rospy</span><span class=o>.</span><span class=n>Rate</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>rospy</span><span class=o>.</span><span class=n>loginfo</span><span class=p>(</span><span class=s2>&#34;state_result &#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>state_result</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=n>state_result</span> <span class=o>&lt;</span> <span class=n>DONE</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>rospy</span><span class=o>.</span><span class=n>loginfo</span><span class=p>(</span><span class=s2>&#34;Doing Stuff while waiting for the server to give a result...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>rate</span><span class=o>.</span><span class=n>sleep</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>state_result</span> <span class=o>=</span> <span class=n>client</span><span class=o>.</span><span class=n>get_state</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>rospy</span><span class=o>.</span><span class=n>loginfo</span><span class=p>(</span><span class=s2>&#34;state_result: &#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>state_result</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>rospy</span><span class=o>.</span><span class=n>loginfo</span><span class=p>(</span><span class=s2>&#34;[Result] State: &#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>state_result</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>state_result</span> <span class=o>==</span> <span class=n>ERROR</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>rospy</span><span class=o>.</span><span class=n>logerr</span><span class=p>(</span><span class=s2>&#34;Something went wrong in the server side&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>state_result</span> <span class=o>==</span> <span class=n>WARN</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>rospy</span><span class=o>.</span><span class=n>logwarn</span><span class=p>(</span><span class=s2>&#34;There is a warning in the Server Side&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=more-details>More Details</h2><div class=video-wrapper><iframe loading=lazy src=https://www.youtube.com/embed/LoRXdNMuslQ allowfullscreen title="YouTube Video"></iframe></div></section><footer class=article-footer><section class=article-tags><a href=/tags/ros/>ros</a>
+<a href=/tags/ros-action/>ros action</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><div class=disqus-container><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//ricoai.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2019 -
+2023 Artoo AI</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.16.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

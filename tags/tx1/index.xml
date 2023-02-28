@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TX1 on Artoo AI</title><link>https://www.artoo.ai/tags/tx1/</link><description>Recent content in TX1 on Artoo AI</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 05 Dec 2018 12:29:40 +0600</lastBuildDate><atom:link href="https://www.artoo.ai/tags/tx1/index.xml" rel="self" type="application/rss+xml"/><item><title>ROS Intel Euclid Install on Nvidia Jeston TX1</title><link>https://www.artoo.ai/p/ros-intel-euclid-install-on-nvidia-jeston-tx1/</link><pubDate>Wed, 05 Dec 2018 12:29:40 +0600</pubDate><guid>https://www.artoo.ai/p/ros-intel-euclid-install-on-nvidia-jeston-tx1/</guid><description>&lt;h2 id="modify-the-kernal-for-uvcvideo">Modify the kernal for uvcvideo&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/jetsonhacks/installLibrealsenseTX1.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd installLibrealsenseTX1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Modify the address to use the Euclid libRealsense
+Modify the address to use the Euclid version of libRealSense
+&lt;a class="link" href="https://github.com/IntelEuclid/librealsense" target="_blank" rel="noopener"
+>https://github.com/IntelEuclid/librealsense&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./installLibrealsense
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Make sure the folder $HOME/librealsense does not exist. If it does, delete the file.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt install motion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="get-motion-installed">Get Motion Installed&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">wget https://github.com/Motion-Project/motion/releases/download/release-4.2/xenial_motion_4.2-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install xenial_motion_4.2-1_amd64.deb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="install-ros">Install ROS&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/jetsonhacks/installROSTX1.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd installROSTX1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./installROSTX1 -p ros-kinetic-desktop-full
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> ./setupWorkspace.sh catkinWS
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2016/10/12/robot-operating-system-ros-on-nvidia-jetson-tx1/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2016/10/12/robot-operating-system-ros-on-nvidia-jetson-tx1/&lt;/a>&lt;/p>
+&lt;h2 id="install-reaslsense-with-ros">Install Reaslsense with ROS&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">git clone https://github.com/jetsonhacks/installRealSenseROSTX1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd installRealSenseROSTX1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Modify the address to use the Euclid version of libRealSense
+&lt;a class="link" href="https://github.com/IntelEuclid/librealsense" target="_blank" rel="noopener"
+>https://github.com/IntelEuclid/librealsense&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./installRealSenseROSTX1 catkinWS
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2016/10/26/intel-realsense-package-for-ros-on-nvidia-jetson-tx1/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2016/10/26/intel-realsense-package-for-ros-on-nvidia-jetson-tx1/&lt;/a>&lt;/p>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd /usr/lib/aarch64-linux-gnu/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ln -sf tegra/libGL.so libGL.so
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;p>This will run the script file to install all the missing files and all the files needed for LibRealsense to run on the system.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="run-the-examples">Run the examples&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd $HOME/librealsense/build/example
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Run any of the examples. Make sure the Euclid is plugged in the USB port and makes sure it is turned on.&lt;/p>
+&lt;hr>
+&lt;h3 id="wifi-ip">Wifi IP&lt;/h3>
+&lt;p>10.42.0.1&lt;/p>
+&lt;hr>
+&lt;h3 id="euclid-not-recongized-by-usb-port">Euclid not recongized by USB Port&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo usermod -a -G dialout $USER
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You will have to logout and then log back in before the group change is recognized.&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/IntelRealSense/librealsense/issues/195" target="_blank" rel="noopener"
+>https://github.com/IntelRealSense/librealsense/issues/195&lt;/a>&lt;/p>
+&lt;h3 id="ubuntu-menu-bars-not-seen-after-reboot">Ubuntu Menu Bars not seen after reboot&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">rm -rf ~/.cache/compizconfig-1/*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">setsid unity
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://askubuntu.com/questions/761035/ubuntu-16-04-no-menu-bar-or-launcher-help" target="_blank" rel="noopener"
+>https://askubuntu.com/questions/761035/ubuntu-16-04-no-menu-bar-or-launcher-help&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h3 id="setup-realsense-for-ros">Setup Realsense for ROS&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt-get install ros-kinetic-realsense-camera
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;hr>
+&lt;p>I get an error message when install the ros kinetic realsense camera from APT:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ERROR: Module uvcvideo not found.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="handle-the-error">Handle the error&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md#video4linux-backend-preparation" target="_blank" rel="noopener"
+>https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md#video4linux-backend-preparation&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2016/10/06/intel-realsense-camera-installation-nvidia-jetson-tx1/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2016/10/06/intel-realsense-camera-installation-nvidia-jetson-tx1/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.jetsonhacks.com/2017/08/14/intel-realsense-camera-librealsense-nvidia-jetson-tx-dev-kits/" target="_blank" rel="noopener"
+>https://www.jetsonhacks.com/2017/08/14/intel-realsense-camera-librealsense-nvidia-jetson-tx-dev-kits/&lt;/a>&lt;/p></description></item></channel></rss>
